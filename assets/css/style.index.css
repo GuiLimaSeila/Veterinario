@@ -69,3 +69,12 @@ input {
 .hidden{
     display: none;
 }
+
+.pet-container{
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
