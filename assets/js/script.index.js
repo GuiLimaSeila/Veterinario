@@ -6,6 +6,7 @@ class Pet {
         this.date = date
         this.img = img
         this.age = this.calculateAge()
+        this.dateBR = this.dateinPTBR()
 
     }
     calculateAge() {
@@ -18,6 +19,13 @@ class Pet {
 
         var cal = Math.abs(year - 1970);
         return cal;
+    }
+    dateinPTBR() {
+        let dateArray = this.date.split("-");
+        let dateReversed = dateArray.reverse();
+        let dateFormated = dateReversed.join("/");
+    
+        return dateFormated;
     }
 }
 class PetList {
@@ -68,7 +76,7 @@ function petStatus() {
     let especie = document.getElementById("input-species").value
     let imgLink = document.getElementById("input-image").value
     let data = document.getElementById("input-date").value
-    const pet = new Pet(tutor, nomePet, especie, dateinPTBR(data), imgLink)
+    const pet = new Pet(tutor, nomePet, especie, data, imgLink)
     listPet.addPet(pet)
 }
 
@@ -107,7 +115,7 @@ function displayPet() {
         <p>Tutor: ${pet.tutor}</p>
             <p>Nome: ${pet.name}</p>
             <p>Espécie: ${pet.specie}</p>
-            <p>Data de Nascimento: ${pet.date}</p>
+            <p>Data de Nascimento: ${pet.dateBR}</p>
             <p>Idade: ${pet.age}</p>
             <img src="${pet.img}" alt="${pet.name}">
         </div>
@@ -116,14 +124,6 @@ function displayPet() {
     });
 
     document.getElementById("pet-area").innerHTML = showPet;
-}
-
-function dateinPTBR(birthdate) {
-    let dateArray = birthdate.split("-");
-    let dateReversed = dateArray.reverse();
-    let dateFormated = dateReversed.join("/");
-
-    return dateFormated;
 }
 
 function showRegisterArea() {
