@@ -1,4 +1,12 @@
-class Pet{}
+class Pet{
+    constructor(tutor, name, specie, img, date){
+        this.tutor = tutor
+        this.name = name
+        this.specie = specie
+        this.img = img
+        this.date = date
+    }
+}
 
 function getInputs() {
     let tutor = document.getElementById("input-tutor").value
@@ -12,6 +20,36 @@ function getInputs() {
     } else {
         return false;
 
+    }
+}
+
+function petStatus() {
+    let tutor = document.getElementById("input-tutor").value
+    let nomePet = document.getElementById("input-namePet").value
+    let especie = document.getElementById("input-species").value
+    let imgLink = document.getElementById("input-image").value
+    let data = document.getElementById("input-date").value
+    const pet = new Pet(tutor, nomePet, especie, data, imgLink)
+    listPet.addPet(pet)
+}
+
+const listPet = new PetList();
+class PetList {
+    constructor() {
+        this.petList = [];
+    }
+    addPet(pet) {
+
+        if (getInputs()) {
+            sendMsg("Preencha todos os campos", "error")
+        } else if(!isURLValida()) {
+            sendMsg("Imagen esta com formato errado", "error")
+        }else {
+            sendMsg("Pet cadastrado 🐕🐈", "succes")
+            this.petList.push(pet)
+            render()
+            cleanInput()
+        }
     }
 }
 
