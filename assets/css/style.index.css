@@ -1,3 +1,28 @@
-header{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/wallpaper.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+header {
     background-color: #1d7044;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+header, .Btn{
+    background-color: #1d7044;
+    color: #fff;
+
 }

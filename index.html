@@ -11,9 +11,23 @@
     <header>
         <h2>Clínica Veterinária</h2>
         <ul>
-        <button onclick="" id="registerBtn" class="Btn">Cadastro</button>
+        <button onclick="" id="registredBtn" class="Btn">Cadastro</button>
         <button onclick="" id="exibitionBtn" class="Btn">Exibição</button>
     </ul>
     </header>
+    <main>
+        <h2>Cadatro de Pets</h2>
+        <label for="input-tutor">Tutor:</label>
+        <input type="text" id="input-tutor" name="input-tutor" class="input">
+        <label for="input-namePet">Nome do Pet:</label>
+        <input type="text" id="input-namePet" name="input-namePet" class="input">
+        <label for="input-species">Espécie:</label>
+        <input type="text" id="input-species" name="input-species" class="input">
+        <label for="input-image">Fotinha:</label>
+        <input type="text" id="input-image" name="input-image" class="input">
+        <label for="input-date">Data de Nascimento:</label>
+        <input type="date" id="input-date" name="input-date" class="input">
+        <button onclick="registerPet()" id="registerBtn" class="Btn">Cadastrar</button>
+    </main>
 </body>
 </html>
