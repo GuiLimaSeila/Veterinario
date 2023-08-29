@@ -13,11 +13,11 @@
     <header>
         <h2>Clínica Veterinária</h2>
         <ul>
-            <button onclick="" id="registredBtn" class="Btn">Cadastro</button>
-            <button onclick="" id="exibitionBtn" class="Btn">Exibição</button>
+            <button onclick="showRegisterArea()" id="registredBtn" class="Btn">Cadastro</button>
+            <button onclick="showPets()" id="exibitionBtn" class="Btn">Exibição</button>
         </ul>
     </header>
-    <main>
+    <main id="main">
         <h2 id="title">Cadatro de Pets</h2>
         <div id="postPet">
             <label for="input-tutor">Tutor:</label>
@@ -34,6 +34,7 @@
             <div id="msg"></div>
         </div>
     </main>
+    <div id="pet-area" class=""></div>
     <script src="assets/js/script.index.js"></script>
 </body>
 

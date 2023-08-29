@@ -1,5 +1,5 @@
-class Pet{
-    constructor(tutor, name, specie, date, age, img ){
+class Pet {
+    constructor(tutor, name, specie, date, age, img) {
         this.tutor = tutor
         this.name = name
         this.specie = specie
@@ -17,13 +17,12 @@ class PetList {
 
         if (getInputs()) {
             sendMsg("Preencha todos os campos", "error")
-        } else if(!isURLValida()) {
+        } else if (!isURLValida()) {
             sendMsg("Imagen esta com formato errado", "error")
-        }else {
+        } else {
             sendMsg("Pet cadastrado 🐕🐈", "succes")
             this.petList.push(pet)
-            render()
-            cleanInput()
+            displayPet()
         }
     }
 }
@@ -35,7 +34,7 @@ function getInputs() {
     let imgLink = document.getElementById("input-image").value
     let data = document.getElementById("input-date").value
 
-    if (tutor == '' || nomePet == '' || especie == '' ||  imgLink == '' || data == '') {
+    if (tutor == '' || nomePet == '' || especie == '' || imgLink == '' || data == '') {
         return true;
     } else {
         return false;
@@ -72,21 +71,41 @@ function sendMsg(msg, typeMsg) {
 
 function isURLValida() {
     let imgLink = document.getElementById("input-image").value
-    if(imgLink.match(/\.(jpeg|jpg|gif|png)$/) != null){
+    if (imgLink.match(/\.(jpeg|jpg|gif|png)$/) != null) {
         return true;
     } else {
         return false;
     }
 }
 
-function calculateAge(age){
+function displayPet() {
+    let showPet = "";
+
+    listPet.petList.forEach((pet) => {
+        showPet += `
+        <div class="pet-container">
+        <p>Tutor: ${pet.tutor}</p>
+            <p>Nome: ${pet.name}</p>
+            <p>Espécie: ${pet.specie}</p>
+            <p>Data de Nascimento: ${pet.date}</p>
+            <p>Idade: ${pet.age}</p>
+            <img src="${pet.img}" alt="${pet.name}">
+        </div>
+    </div>
+            `;
+    });
+
+    document.getElementById("pet-area").innerHTML = showPet;
+}
+
+function calculateAge(age) {
     let petBirthdate = age
     let date = new Date(petBirthdate);
     var monthDiff = Date.now() - date.getTime();
-    var ageDiff = new Date( monthDiff);
+    var ageDiff = new Date(monthDiff);
 
     var year = ageDiff.getUTCFullYear();
-    
+
     var cal = Math.abs(year - 1970);
     return cal;
 }
@@ -95,10 +114,27 @@ function dateinPTBR(birthdate) {
     let dateArray = birthdate.split("-");
     let dateReversed = dateArray.reverse();
     let dateFormated = dateReversed.join("/");
-    
+
     return dateFormated;
 }
 
-function displayPet(){
-    console.log(this.petList)
+function displayPet() {
+    console.log(listPet)
+}
+
+function showRegisterArea() {
+    document.getElementById("pet-area").classList.add("hidden");
+    document.getElementById("main").classList.remove("hidden");
+}
+
+function showPets() {
+    if (listPet.petList.length < 1) {
+        sendMsg("Adicione um Pet primeiro.", "error")
+    } else {
+        document.getElementById("pet-area").classList.remove("hidden");
+        document.getElementById("main").classList.add("hidden");
+
+    }
+
+
 }
