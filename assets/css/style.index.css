@@ -8,8 +8,7 @@
 }
 
 body {
-    background-repeat: no-repeat;
-    background-size: 100%;
+background-color: #eeeeee;
 }
 
 header {
@@ -23,6 +22,8 @@ header {
 header, .Btn{
     background-color: #1d7044;
     color: #fff;
+    border: none;
+    padding: 10px;
 
 }
 
@@ -32,4 +33,37 @@ header, .Btn{
 
 .succes {
     color: rgb(139, 222, 44);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#postPet {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+#title{
+    padding-top: 30px;
 }
