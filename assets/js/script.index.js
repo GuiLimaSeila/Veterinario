@@ -53,6 +53,23 @@ class PetList {
     }
 }
 
+function sendMsg(msg, typeMsg) {
+    //Essa função vai colocar uma mensagem na tela do usuario
+    //usando tecnicas de html e js
+
+    let msgDiv = document.getElementById("msg");
+    msgDiv.innerHTML = '';
+
+    const msgDisplay = `
+<p class="${typeMsg}">${msg}</p>
+`
+    msgDiv.innerHTML = msgDisplay;
+
+    setTimeout(function () {
+        msgDiv.innerHTML = '';
+    }, 4000);
+}
+
 function isURLValida() {
     let imgLink = document.getElementById("input-image").value
     if(imgLink.match(/\.(jpeg|jpg|gif|png)$/) != null){
