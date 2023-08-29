@@ -23,8 +23,17 @@ class PetList {
             sendMsg("Pet cadastrado 🐕🐈", "succes")
             this.petList.push(pet)
             displayPet()
+            cleanInputs()
         }
     }
+}
+
+function cleanInputs(){
+    let tutor = document.getElementById("input-tutor").value = "";
+    let nomePet = document.getElementById("input-namePet").value = "";
+    let especie = document.getElementById("input-species").value = "";
+    let imgLink = document.getElementById("input-image").value = "";
+    let data = document.getElementById("input-date").value = "";
 }
 
 function getInputs() {
@@ -118,13 +127,9 @@ function dateinPTBR(birthdate) {
     return dateFormated;
 }
 
-function displayPet() {
-    console.log(listPet)
-}
-
 function showRegisterArea() {
     document.getElementById("pet-area").classList.add("hidden");
-    document.getElementById("main").classList.remove("hidden");
+    document.getElementById("postPet").classList.remove("hidden");
 }
 
 function showPets() {
@@ -132,7 +137,7 @@ function showPets() {
         sendMsg("Adicione um Pet primeiro.", "error")
     } else {
         document.getElementById("pet-area").classList.remove("hidden");
-        document.getElementById("main").classList.add("hidden");
+        document.getElementById("postPet").classList.add("hidden");
 
     }
 
