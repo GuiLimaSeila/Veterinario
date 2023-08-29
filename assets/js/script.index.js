@@ -1,12 +1,23 @@
 class Pet {
-    constructor(tutor, name, specie, date, age, img) {
+    constructor(tutor, name, specie, date, img) {
         this.tutor = tutor
         this.name = name
         this.specie = specie
         this.date = date
-        this.age = age
         this.img = img
+        this.age = this.calculateAge()
 
+    }
+    calculateAge() {
+        let petBirthdate = this.date
+        let date = new Date(petBirthdate);
+        var monthDiff = Date.now() - date.getTime();
+        var ageDiff = new Date(monthDiff);
+
+        var year = ageDiff.getUTCFullYear();
+
+        var cal = Math.abs(year - 1970);
+        return cal;
     }
 }
 class PetList {
@@ -57,7 +68,7 @@ function petStatus() {
     let especie = document.getElementById("input-species").value
     let imgLink = document.getElementById("input-image").value
     let data = document.getElementById("input-date").value
-    const pet = new Pet(tutor, nomePet, especie, dateinPTBR(data), calculateAge(data), imgLink)
+    const pet = new Pet(tutor, nomePet, especie, dateinPTBR(data), imgLink)
     listPet.addPet(pet)
 }
 
@@ -105,18 +116,6 @@ function displayPet() {
     });
 
     document.getElementById("pet-area").innerHTML = showPet;
-}
-
-function calculateAge(age) {
-    let petBirthdate = age
-    let date = new Date(petBirthdate);
-    var monthDiff = Date.now() - date.getTime();
-    var ageDiff = new Date(monthDiff);
-
-    var year = ageDiff.getUTCFullYear();
-
-    var cal = Math.abs(year - 1970);
-    return cal;
 }
 
 function dateinPTBR(birthdate) {
