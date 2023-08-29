@@ -1,10 +1,12 @@
 class Pet{
-    constructor(tutor, name, specie, img, date){
+    constructor(tutor, name, specie, date, age, img ){
         this.tutor = tutor
         this.name = name
         this.specie = specie
-        this.img = img
         this.date = date
+        this.age = age
+        this.img = img
+
     }
 }
 class PetList {
@@ -47,7 +49,7 @@ function petStatus() {
     let especie = document.getElementById("input-species").value
     let imgLink = document.getElementById("input-image").value
     let data = document.getElementById("input-date").value
-    const pet = new Pet(tutor, nomePet, especie, data, imgLink)
+    const pet = new Pet(tutor, nomePet, especie, dateinPTBR(data), calculateAge(data), imgLink)
     listPet.addPet(pet)
 }
 
@@ -75,4 +77,28 @@ function isURLValida() {
     } else {
         return false;
     }
+}
+
+function calculateAge(age){
+    let petBirthdate = age
+    let date = new Date(petBirthdate);
+    var monthDiff = Date.now() - date.getTime();
+    var ageDiff = new Date( monthDiff);
+
+    var year = ageDiff.getUTCFullYear();
+    
+    var cal = Math.abs(year - 1970);
+    return cal;
+}
+
+function dateinPTBR(birthdate) {
+    let dateArray = birthdate.split("-");
+    let dateReversed = dateArray.reverse();
+    let dateFormated = dateReversed.join("/");
+    
+    return dateFormated;
+}
+
+function displayPet(){
+    console.log(this.petList)
 }
