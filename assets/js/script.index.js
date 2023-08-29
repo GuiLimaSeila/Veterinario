@@ -28,12 +28,12 @@ class PetList {
     }
 }
 
-function cleanInputs(){
-    let tutor = document.getElementById("input-tutor").value = "";
-    let nomePet = document.getElementById("input-namePet").value = "";
-    let especie = document.getElementById("input-species").value = "";
-    let imgLink = document.getElementById("input-image").value = "";
-    let data = document.getElementById("input-date").value = "";
+function cleanInputs() {
+    tutor = document.getElementById("input-tutor").value = "";
+    nomePet = document.getElementById("input-namePet").value = "";
+    especie = document.getElementById("input-species").value = "";
+    imgLink = document.getElementById("input-image").value = "";
+    data = document.getElementById("input-date").value = "";
 }
 
 function getInputs() {
