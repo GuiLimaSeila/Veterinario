@@ -17,6 +17,9 @@ header {
     display: flex;
     flex-direction: column;
     color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 header, .Btn{
@@ -29,12 +32,13 @@ header, .Btn{
 
 footer{
     background-color: #1d7044;
-    color: #1d7044;
+    color: #fff;
     border: none;
     padding: 10px;
     position: fixed;
     bottom: 0;
     width: 100%;
+text-align: center;
 
 }
 
@@ -52,6 +56,7 @@ main{
     align-items: center;
     flex-direction: column;
     align-content: center;
+    margin-top: 140px;
 }
 
 input {
@@ -78,17 +83,25 @@ input {
 }
 
 .hidden{
-    display: none;
+    display: none !important;
+    
 }
-
+#pet-area{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
 .pet-container{
-    max-width: 600px;
+    max-width: 505px;
     width: 100%;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
+    margin-bottom: 40px;
 }
 .pet-container, img{
     width: 50%;
+    height: 50%;
 }
