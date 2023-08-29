@@ -26,3 +26,11 @@ header, .Btn{
     color: #fff;
 
 }
+
+.error {
+    color: #e60e0e;
+}
+
+.succes {
+    color: rgb(139, 222, 44);
+}

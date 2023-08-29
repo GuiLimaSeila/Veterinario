@@ -7,6 +7,24 @@ class Pet{
         this.date = date
     }
 }
+class PetList {
+    constructor() {
+        this.petList = [];
+    }
+    addPet(pet) {
+
+        if (getInputs()) {
+            sendMsg("Preencha todos os campos", "error")
+        } else if(!isURLValida()) {
+            sendMsg("Imagen esta com formato errado", "error")
+        }else {
+            sendMsg("Pet cadastrado 🐕🐈", "succes")
+            this.petList.push(pet)
+            render()
+            cleanInput()
+        }
+    }
+}
 
 function getInputs() {
     let tutor = document.getElementById("input-tutor").value
@@ -34,28 +52,8 @@ function petStatus() {
 }
 
 const listPet = new PetList();
-class PetList {
-    constructor() {
-        this.petList = [];
-    }
-    addPet(pet) {
-
-        if (getInputs()) {
-            sendMsg("Preencha todos os campos", "error")
-        } else if(!isURLValida()) {
-            sendMsg("Imagen esta com formato errado", "error")
-        }else {
-            sendMsg("Pet cadastrado 🐕🐈", "succes")
-            this.petList.push(pet)
-            render()
-            cleanInput()
-        }
-    }
-}
-
 function sendMsg(msg, typeMsg) {
-    //Essa função vai colocar uma mensagem na tela do usuario
-    //usando tecnicas de html e js
+
 
     let msgDiv = document.getElementById("msg");
     msgDiv.innerHTML = '';
