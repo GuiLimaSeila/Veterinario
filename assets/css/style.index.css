@@ -27,6 +27,17 @@ header, .Btn{
 
 }
 
+footer{
+    background-color: #1d7044;
+    color: #1d7044;
+    border: none;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+
 .error {
     color: #e60e0e;
 }
@@ -77,4 +88,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
+}
+.pet-container, img{
+    width: 50%;
 }
